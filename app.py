@@ -51,10 +51,10 @@ input_data = pd.DataFrame({
 geo_encoded = onehot_encoder_geo.transform([[geography]])
 # geo_encoded_df = pd.DataFrame(geo_encoded, columns= onehot_encoder_geo.get_feature_names_out(['Geography']))
 # Use get_feature_names if get_feature_names_out isn't available
-#try:
-columns = onehot_encoder_geo.get_feature_names_out(['Geography'])
-#except AttributeError:
-   # columns = onehot_encoder_geo.get_feature_names(['Geography'])
+try:
+    columns = onehot_encoder_geo.get_feature_names_out(['Geography'])
+except AttributeError:
+    columns = onehot_encoder_geo.get_feature_names(['Geography'])
 
 #geo_encoded_df = pd.DataFrame(geo_encoded, columns=columns)
 
